@@ -6,26 +6,22 @@ This example demonstrates handling user input with the v-on directive.
 export default {
   data() {
     return {
-      message: 'Hello World!'
+      message: 'yeet'
     }
   },
   methods: {
-    reverseMessage() {
-      this.message = this.message.split('').reverse().join('')
-    },
-    notify() {
-      alert('navigation was prevented.')
-    },
+
     pushMessage(){
-      alert('navigation was prevented.')
+      
     }
+
   }
 }
 </script>
 
 <template>
   <input v-model="message" placeholder="edit me"><br>
-  <button @click="pushMessage()"></button>
+  <button @click="pushMessage()">send message to server</button><br>
   <p>Message is: {{ message }}</p>
 </template>
 
