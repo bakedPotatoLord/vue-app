@@ -2,32 +2,41 @@
 This example demonstrates handling user input with the v-on directive.
 -->
 
-<script>
-export default {
-  data() {
-    return {
-      message: 'yeet'
-    }
-  },
-  methods: {
+<script setup>
+  import { reactive } from 'vue'
 
-    pushMessage(){
-      
-    }
+  import Header1 from './components/header.vue'
 
+
+  const number = reactive({count:0})
+
+  function increment(){
+    number.count++
   }
-}
+  function reset(){
+    number.count = 0
+  }
+
 </script>
 
 <template>
-  <input v-model="message" placeholder="edit me"><br>
-  <button @click="pushMessage()">send message to server</button><br>
-  <p>Message is: {{ message }}</p>
+  <Header1 />
+  <button @click="increment()">add one</button><br>
+  <button @click="reset()">reset</button>
+  <p>count is {{ number.count }}</p>
 </template>
 
 <style>
+
+body{
+  margin:0px;
+  padding:0px
+}
+
 button, a {
   display: block;
   margin-bottom: 1em;
 }
+
+
 </style>
